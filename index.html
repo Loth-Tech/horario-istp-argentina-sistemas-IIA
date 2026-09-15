@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HORARIO ISTPA - "SISTEMAS DE INFORMACIÓN" 405 - IA - DIURNO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>📅 Horario - Sistemas De Información - IIA 405 - Diurno - ISTPA 2026</h1>
+        
+        <div class="table-responsive">
+        <table class="horario-table">
+            <thead>
+                <tr>
+                    <th>HORA / FECHA</th>
+                    <th>LUNES</th>
+                    <th>MARTES</th>
+                    <th>MIÉRCOLES</th>
+                    <th>JUEVES</th>
+                    <th>VIERNES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila 1 -->
+                <tr>
+                    <td class="hora">08:15 a 09:00</td>
+                    <td class="asignatura amarillo" rowspan = "3">OFIMÁTICA<br><small><B>(Prof. Barnett - Lab. 01)</B></small></td>
+                    <td class="asignatura blanco"><B>LIBRE</B></td>
+                    <td class="asignatura melocoton" rowspan="2">LENGUAJE DE PROGRAMACIÓN<br><small><B>(Prof. De La Cruz - Lab. 01)</B></small></td>                   
+                    <td class="asignatura lila" rowspan="2">PROGRAMACIÓN DE MACROS<br><small><B>(Prof. Palomino - Lab. 01)</B></small></td>
+                    <td class="asignatura morado-oscuro" rowspan="3">DISEÑO Y CONFIGURACIÓN DE REDES<br><small><B>(Prof. Padilla - Aula 405)</B></small></td>
+                </tr>
+
+                <!-- Fila 2 -->
+                <tr>
+                    <td class="hora">09:00 a 09:45</td> 
+                    <td class="asignatura verde" rowspan = "3">DESARROLLO DE INTERFACES WEB DINÁMICAS<br><small><B>(Prof. Huertas - Lab. 01)</B></small></td>
+                </tr>
+
+                <!-- Fila 3 -->
+                <tr>
+                    <td class="hora">09:45 a 10:30</td>
+                    <td class="asignatura blanco"><B>LIBRE</B></td>
+                    <td class="asignatura morado" rowspan="2">REPARACIÓN DE EQUIPOS TECNOLÓGICOS<br><small><B>(Prof. Padilla - Aula 405)</B></small></td>
+                </tr>
+
+                <!-- Fila 4 -->
+                <tr>
+                    <td class="hora">10:30 a 11:15</td>
+                    <td class="asignatura rojo">HERRAMIENTAS PARA ANÁLISIS DE DATOS<br><small><B>(Prof. Gutierrez - Lab. 01)</B></small></td>
+                    <td class="asignatura morado" rowspan="1">REPARACIÓN DE EQUIPOS TECNOLÓGICOS<br><small><B>(Prof. Padilla - Aula 405)</B></small></td> 
+                    <td class="asignatura lila" rowspan="1">PROGRAMACIÓN DE MACROS<br><small><B>(Prof. Palomino - Lab. 01)</B></small></td>                
+                </tr>
+
+                <!-- Fila 5 -->
+                <tr>
+                    <td class="hora">11:15 a 11:30</td>
+                    <td colspan="5" class="asignatura negro"><B>RECESO / DESCANSO</B></td>
+                </tr>
+
+                <!-- Fila 6 -->
+                <tr>
+                    <td class="hora">11:30 a 12:15</td>
+                    <td class="asignatura rojo" rowspan="2">HERRAMIENTAS PARA ANÁLISIS DE DATOS<br><small><B>(Prof. Gutierrez - Lab. 01)</B></small></td>
+                    <td class="asignatura melocoton" rowspan="3">LENGUAJE DE PROGRAMACIÓN<br><small><B>(Prof. De La Cruz - Lab. 01)</B></small></td>
+                    <td class="asignatura morado" rowspan="2">REPARACIÓN DE EQUIPOS TECNOLÓGICOS<br><small><B>(Prof. Padilla - Aula 405)</B></small></td> 
+                    <td class="asignatura lila-rojo" rowspan="3">INTERPRETACIÓN Y PRODUCCIÓN DE TEXTOS<br><small><B>(Prof. Castillo - Aula 405)</B></small></td>                 
+                    <td class="asignatura lila" rowspan="2">PROGRAMACIÓN DE MACROS<br><small><B>(Prof. Palomino - Lab. 01)</B></small></td>
+                </tr>
+
+                <!-- Fila 7 -->
+                <tr>
+                    <td class="hora">12:15 a 13:00</td>
+                    <!--<td class="asignatura azul-claro" rowspan = "2">ARQUITECTURA Y COMPONENTES DE COMPUTADORAS<br><small>(Prof. Balcazar) (Aula 405)</small></td>-->
+                </tr>
+
+                <!-- Fila 8 -->
+                <tr>
+                    <td class="hora">13:00 a 13:45</td>
+                    
+                    
+                    <td class="asignatura blanco"><B>SALIDA</B></td>
+                    <td class="asignatura blanco"><B>SALIDA</B></td>
+                    <td class="asignatura blanco"><B>SALIDA</B></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+
+<!-- ====================== MODAL ====================== -->
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <div class="modal-header">
+                <img id="prof-foto" src="" alt="Profesor" class="prof-photo">
+                <div>
+                    <h2 id="modal-profesor"></h2>
+                    <p id="modal-asignatura"></p>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <p><strong>Aula:</strong> <span id="modal-aula"></span></p>
+                <p><strong>Horario:</strong> <span id="modal-horario"></span></p>
+                <p><strong>Delegado del Curso:</strong> <span id="modal-delegado"></span></p>
+                <p><strong>Contacto:</strong> <a href="#" id="modal-contacto" target="_blank"></a></p>
+            </div>
+           
+            
+            <div class="modal-buttons">
+                <a href="https://pe.linkedin.com/in/oscaralbertobarnettcontreras" class="btn-modal" target="_blank" rel="noopener">Ver información del PROFESOR</a>
+                <a href="https://classroom.google.com/u/7/h?pli=1" class="btn-modal" target="_blank" rel="noopener">Unirme al MEET Virtual</a>
+                <button class="btn-modal">Ver TAREAS PROGRAMADAS del curso</button>
+                <a href="https://chat.whatsapp.com/HnnYlQbBcTX775m2treOOH" class="btn-modal" target="_blank" rel="noopener">Unirme al WHATSAPP del aula</a>                
+                <a href="https://www.instagram.com/limbic.tech" class="btn-modal" target="_blank" rel="noopener">Ver información de LIMBIC TECH</a>                
+                <a href="https://istpargentina.edu.pe/" target="_blank" class="btn-modal" rel="noopener noreferrer">Más sobre el INSTITUTO ARGENTINA</a>
+            
+            </div>          
+        </div>
+    </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

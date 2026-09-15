@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1e2937;
+}
+
+.horario-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.horario-table th,
+.horario-table td {
+    border: 1px solid #94a3b8;
+    padding: 10px 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.horario-table th {
+    background: #1e2937;
+    color: white;
+    font-weight: 600;
+}
+
+.hora {
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    width: 130px;
+}
+
+/* Colores según la imagen */
+.asignatura {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.amarillo     { background-color: #f3dd34; }
+.rojo         { background-color: #eb3737; color: white; }
+.verde        { background-color: #56ec7b; }
+.melocoton    { background-color: #fed7aa; }
+.morado       { background-color: #c18bf3; }
+.lila         { background-color: #f07dca; }
+.lila-rojo    { background-color: #db476c; }
+.morado-oscuro{ background-color: #66379c; color: white; }
+.negro        { background-color: #1e2937; color: white; }
+
+/* Efectos */
+.asignatura:hover {
+    filter: brightness(1.08);
+    transition: 0.3s;
+}
+
+small {
+    display: block;
+    margin-top: 4px;
+    opacity: 0.85;
+}
+
+
+
+
+
+
+
+
+
+/* ====================== MODAL ====================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 520px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.prof-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #1e40af;
+}
+
+.modal-body p {
+    margin: 12px 0;
+    font-size: 1.05rem;
+}
+
+.modal-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    
+}
+
+.btn-modal {
+    text-decoration: none; 
+    padding: 12px 10px;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: center;           /* ← Esto centra el texto horizontalmente */
+   
+    
+}
+
+.btn-modal:hover {
+    background: #1e3a8a;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .modal-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+.horario-multi {
+    margin-top: 5px;
+    margin-left: 0;
+    line-height: 1.7;
+    padding-left: 8px;
+    border-left: 3px solid #1e40af;
+}
+
+
+
+
+
+
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================
+   OPTIMIZACIÓN EXPERTA DE RESPONSIVIDAD (Móviles y Tablets)
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Ajuste de márgenes generales para ganar espacio real en pantallas pequeñas */
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    /* 2. Compactar ligeramente las celdas de la tabla para optimizar el scroll horizontal */
+    .horario-table {
+        font-size: 0.85rem;
+    }
+
+    .horario-table th,
+    .horario-table td {
+        padding: 8px 4px;
+    }
+
+    .hora {
+        width: 85px; /* Reduce el ancho fijo de la columna de horas en móvil */
+    }
+}
+
+/* Para celulares muy compactos (menores a 480px de ancho) */
+@media (max-width: 480px) {
+    /* 3. Cambiar el modal de filas a columnas para que la foto no aplaste el texto */
+    .modal-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .prof-photo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .modal-content {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .modal-body p {
+        font-size: 0.95rem;
+        margin: 8px 0;
+    }
+}
