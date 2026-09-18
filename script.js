@@ -38,8 +38,8 @@ const profesores = {
     "Huertas": {
         nombre: "Prof. Gina Huertas C.",
         asignatura: "Curso: Fundamentos De Interfaces Web Interactivas.",
-        aula: "405 - IIA - Diurno & Lab. 01 (Piso 04).",
-        horario: "📆 Martes, de 09.00 am a 11:15 am.",
+        aula: "<p>🚪 405 - IIA - Diurno & Lab. 01 (Piso 04).</p>",
+        horario: "<p>📆 Martes, de 09.00 am a 11:15 am.</p>",
         delegado: "",
         contacto: "https://wa.me/+51xxxxxxxxx",
         foto: "Logo_ISTPA_001.png",
@@ -48,7 +48,7 @@ const profesores = {
     "De La Cruz": {
         nombre: "Prof. Pedro De La Cruz",
         asignatura: "Curso: Lenguaje De Programación 1.",
-        aula: "405 - IIA - Diurno & Lab. 01 (Piso 04).",
+        aula: "<p>🚪 405 - IIA - Diurno & Lab. 01 (Piso 04).</p>",
         horario: "<p>📆 Martes, de 11:30 am a 13:45 pm (Lab. 01).</p><p>📆 Miércoles, de 08:15 am a 09:45 am (Aula 405).</p><p></p>",
         delegado: "",
         contacto: "https://wa.me/+51xxxxxxxxx",
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('prof-foto').src = data.foto;
             document.getElementById('modal-profesor').textContent = data.nombre;
             document.getElementById('modal-asignatura').textContent = data.asignatura;
-            document.getElementById('modal-aula').textContent = data.aula;
+            document.getElementById('modal-aula').innerHTML = data.aula;
             document.getElementById('modal-horario').innerHTML = data.horario;
 
             document.getElementById('modal-delegado').textContent = data.delegado;
