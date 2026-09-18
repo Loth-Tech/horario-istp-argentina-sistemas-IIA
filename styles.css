@@ -160,12 +160,45 @@ small {
     cursor: pointer;
     font-size: 0.95rem;
     text-align: center;           /* ← Esto centra el texto horizontalmente */
-   
+    
+}
+
+.btn-modal1 {
+    text-decoration: none; 
+    padding: 12px 10px;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: center;           /* ← Esto centra el texto horizontalmente */
+    
+}
+
+.btn-modal2 {
+    text-decoration: none; 
+    padding: 12px 10px;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: center;           /* ← Esto centra el texto horizontalmente */
     
 }
 
 .btn-modal:hover {
     background: #1e3a8a;
+}
+
+.btn-modal1:hover {
+    background: #38a83d;
+}
+
+.btn-modal2:hover {
+    background: #4388bf;
 }
 
 /* Responsive */
