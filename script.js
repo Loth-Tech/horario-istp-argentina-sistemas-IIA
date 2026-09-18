@@ -1,300 +1,160 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// script.js
+//document.addEventListener('DOMContentLoaded', () => {
+    //console.log("✅ Horario cargado correctamente");
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #1e2937;
-}
-
-.horario-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-.horario-table th,
-.horario-table td {
-    border: 1px solid #94a3b8;
-    padding: 10px 8px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.horario-table th {
-    background: #1e2937;
-    color: white;
-    font-weight: 600;
-}
-
-.hora {
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    width: 130px;
-}
-
-/* Colores según la imagen */
-.asignatura {
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.amarillo     { background-color: #f3dd34; }
-.rojo         { background-color: #eb3737; color: white; }
-.verde        { background-color: #56ec7b; }
-.melocoton    { background-color: #fed7aa; }
-.morado       { background-color: #c18bf3; }
-.lila         { background-color: #f07dca; }
-.lila-rojo    { background-color: #db476c; }
-.morado-oscuro{ background-color: #66379c; color: white; }
-.negro        { background-color: #1e2937; color: white; }
-
-/* Efectos */
-.asignatura:hover {
-    filter: brightness(1.08);
-    transition: 0.3s;
-}
-
-small {
-    display: block;
-    margin-top: 4px;
-    opacity: 0.85;
-}
+    // Opcional: hacer clic en una asignatura para ver más info
+    //document.querySelectorAll('.asignatura').forEach(celda => {
+        //celda.addEventListener('click', () => {
+            //const texto = celda.textContent.trim();
+           // alert(`📌 Asignatura:\n${texto}`);
+        //});
+    //});
+//});
 
 
 
+// Datos de ejemplo (puedes agregar más)
+const profesores = {
+    "Barnett": {
+        nombre: "Prof. Oscar A. Barnett C.",
+        asignatura: "Curso: Ofimática 1.",
+        aula: "Laboratorio 01 (Piso 04).",
+        horario: "📆 Lunes, de 08:15 am a 10:30 am (Lab. 01).",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Gutierrez": {
+        nombre: "Prof. Gutierrez",
+        asignatura: "Herramientas para Análisis de Datos.",
+        aula: "405 - IIA - Diurno (Piso 04).",
+        horario: "📆 Lunes, De 10:30 am a 13:00 pm.",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Huertas": {
+        nombre: "Prof. Gina Huertas C.",
+        asignatura: "Curso: Fundamentos De Interfaces Web Interactivas.",
+        aula: "<p>🚪 405 - IIA - Diurno & Lab. 01 (Piso 04).</p>",
+        horario: "<p>📆 Martes, de 09.00 am a 11:15 am.</p>",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "De La Cruz": {
+        nombre: "Prof. Pedro De La Cruz",
+        asignatura: "Curso: Lenguaje De Programación 1.",
+        aula: "<p>🚪 405 - IIA - Diurno & Lab. 01 (Piso 04).</p>",
+        horario: "<p>📆 Martes, de 11:30 am a 13:45 pm (Lab. 01).</p><p>📆 Miércoles, de 08:15 am a 09:45 am (Aula 405).</p><p></p>",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Padilla": {
+        nombre: "Prof. Edwin Padilla Obregon",
+        asignatura: "Cursos: Reparación De Equipos Tecnológicos & Diseño y Configuración De Redes.",
+        aula: "405 - IIA - Diurno (Piso 04).",
+        horario: "<p>📆 Miércoles, de 10:30 am a 13:00 pm.</p><p>📆 Jueves, de 08:15 am a 10:30 am.</p><p>📆 Viernes, de 08:15 am a 09:45 am.</p><p></p>",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+     "Palomino": {
+        nombre: "Prof. Palomino",
+        asignatura: "Curso: Programación de Macros.",
+        aula: "405 - IIA - Diurno & Lab. 01 (Piso 04).",
+        horario: "<p>📆 Jueves, de 08:15 am am a 09:45 am.</p><p>📆 Viernes, de 08:15 am a 10:30 am.</p><p></p>",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Castillo": {
+        nombre: "Prof. Castillo.",
+        asignatura: "Comunicación Oral",
+        aula: "405 - IIA - Diurno (Piso 04)",
+        horario: "📆 Jueves, de 11:30 am  a 13:45 pm.",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Libre": {
+        nombre: "¡HORARIO LIBRE!",
+        asignatura: "No tienes nada por ahora. 😄",
+        aula: "",
+        horario: "",
+        delegado: "",
+        contacto: "https://wa.me/+51900930053",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    "Salida": {
+        nombre: "¡HORA DE SALIDA!",
+        asignatura: "Sales temprano hoy. 😄",
+        aula: "",
+        horario: "",
+        delegado: "",
+        contacto: "https://wa.me/+51xxxxxxxxx",
+        foto: "Logo_ISTPA_001.png",
+    },
+
+    // Agrega más profesores aquí...
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Abrir modal al hacer clic en cualquier celda de asignatura
+    document.querySelectorAll('.asignatura').forEach(celda => {
+        celda.style.cursor = "pointer";
+        celda.addEventListener('click', () => {
 
 
+            const texto = celda.textContent.trim();
+            let profesorKey = "Libre"; // Por defecto
 
+            if (texto.includes("Barnett")) profesorKey = "Barnett";
+            if (texto.includes("Gutierrez")) profesorKey = "Gutierrez";
+            if (texto.includes("Huertas")) profesorKey = "Huertas";
+            if (texto.includes("De La Cruz")) profesorKey = "De La Cruz";
+            if (texto.includes("Padilla")) profesorKey = "Padilla";
+            if (texto.includes("Palomino")) profesorKey = "Palomino";
+            if (texto.includes("Castillo")) profesorKey = "Castillo";
+            if (texto.includes("SALIDA")) profesorKey = "Salida";
 
+            // Agrega más condiciones según necesites
 
+            const data = profesores[profesorKey] || profesores["Barnett"];
 
-/* ====================== MODAL ====================== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
+            // Llenar modal
+            document.getElementById('prof-foto').src = data.foto;
+            document.getElementById('modal-profesor').textContent = data.nombre;
+            document.getElementById('modal-asignatura').textContent = data.asignatura;
+            document.getElementById('modal-aula').innerHTML = data.aula;
+            document.getElementById('modal-horario').innerHTML = data.horario;
 
-.modal-content {
-    background: white;
-    width: 90%;
-    max-width: 520px;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    position: relative;
-}
+            document.getElementById('modal-delegado').textContent = data.delegado;
+            document.getElementById('modal-contacto').href = data.contacto;
+            document.getElementById('modal-contacto').textContent = data.contacto;
 
-.close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #666;
-}
+            document.getElementById('modal').style.display = 'flex';
+        });
+    });
 
-.modal-header {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    align-items: center;
-}
+    // Cerrar modal
+    document.querySelector('.close').addEventListener('click', () => {
+        document.getElementById('modal').style.display = 'none';
+    });
 
-.prof-photo {
-    width: 130px;
-    height: 130px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 3px solid #1e40af;
-}
-
-.modal-body p {
-    margin: 12px 0;
-    font-size: 1.05rem;
-}
-
-.modal-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
-    
-}
-
-.btn-modal {
-    text-decoration: none; 
-    padding: 12px 10px;
-    background: #1e40af;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    text-align: center;           /* ← Esto centra el texto horizontalmente */
-    
-}
-
-.btn-modal1 {
-    text-decoration: none; 
-    padding: 12px 10px;
-    background: #1e40af;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    text-align: center;           /* ← Esto centra el texto horizontalmente */
-    
-}
-
-.btn-modal2 {
-    text-decoration: none; 
-    padding: 12px 10px;
-    background: #1e40af;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    text-align: center;           /* ← Esto centra el texto horizontalmente */
-    
-}
-
-.btn-modal:hover {
-    background: #1e3a8a;
-}
-
-.btn-modal1:hover {
-    background: #38a83d;
-}
-
-.btn-modal2:hover {
-    background: #4388bf;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .modal-buttons {
-        grid-template-columns: 1fr;
-    }
-}
-
-.horario-multi {
-    margin-top: 5px;
-    margin-left: 0;
-    line-height: 1.7;
-    padding-left: 8px;
-    border-left: 3px solid #1e40af;
-}
-
-
-
-
-
-
-
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 1rem;
-}
-
-
-
-
-
-
-
-
-/* ==========================================================
-   OPTIMIZACIÓN EXPERTA DE RESPONSIVIDAD (Móviles y Tablets)
-   ========================================================== */
-
-@media (max-width: 768px) {
-    /* 1. Ajuste de márgenes generales para ganar espacio real en pantallas pequeñas */
-    body {
-        padding: 8px;
-    }
-
-    .container {
-        padding: 12px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-
-    h1 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    /* 2. Compactar ligeramente las celdas de la tabla para optimizar el scroll horizontal */
-    .horario-table {
-        font-size: 0.85rem;
-    }
-
-    .horario-table th,
-    .horario-table td {
-        padding: 8px 4px;
-    }
-
-    .hora {
-        width: 85px; /* Reduce el ancho fijo de la columna de horas en móvil */
-    }
-}
-
-/* Para celulares muy compactos (menores a 480px de ancho) */
-@media (max-width: 480px) {
-    /* 3. Cambiar el modal de filas a columnas para que la foto no aplaste el texto */
-    .modal-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-
-    .prof-photo {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-    }
-
-    .modal-content {
-        padding: 15px;
-        width: 95%;
-    }
-
-    .modal-body p {
-        font-size: 0.95rem;
-        margin: 8px 0;
-    }
-}
+    // Cerrar modal al hacer clic fuera
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('modal');
+        if (e.target === modal) modal.style.display = 'none';
+    });
+});
